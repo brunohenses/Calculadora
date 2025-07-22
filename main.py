@@ -49,12 +49,6 @@ if __name__ == "__main__":
             # Exibição do resultado
             print(f'\nResultado: {num1} {operador} {num2} = {result:.2f}\n')
 
-            # Verificar se o usuário deseja continuar
-            continuar = input('\nDeseja fazer outra operação? (s/n): ').strip().lower()
-            if continuar != 's':
-                print('\nVolte sempre!\n')
-                break
-
         except ValueError:
             print('Erro: Valor inválido! Por favor, digite apenas números!')
             time.sleep(2)
@@ -69,3 +63,11 @@ if __name__ == "__main__":
             print('Impossível dividir por zero! -> Tente novamente!')
             time.sleep(2)
             continue
+
+        # Verificar se o usuário deseja continuar
+        continuar = input('\nDeseja fazer outra operação? (s/n): ').strip().lower()
+        if continuar != 's':
+            print('\nVolte sempre!\n')
+            break
+
+
