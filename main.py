@@ -43,21 +43,24 @@ if __name__ == "__main__":
             # Execução do cálculo
             result = calculadora(num1, num2, operador)
 
-            # Exibição do resultado
-            print(f'\nResultado: {num1} {operador} {num2} = {result:.2f}\n')
+            # Verificação se o resultado é válido (não é nan)
+            if result == result:  # nan não é igual a si mesmo
+                print(f'\nResultado: {num1} {operador} {num2} = {result:.2f}\n')
+            else:
+                print('\nOperação inválida ou não suportada!\n')
 
         except ValueError:
             print('Erro: Valor inválido! Por favor, digite apenas números!')
             time.sleep(2)
             continue
 
-        except Exception as e:
-            print(f'Erro inesperado: {str(e)}')
+        except ZeroDivisionError:
+            print('Impossível dividir por zero! -> Tente novamente!')
             time.sleep(2)
             continue
 
-        except ZeroDivisionError:
-            print('Impossível dividir por zero! -> Tente novamente!')
+        except Exception as e:
+            print(f'Erro inesperado: {str(e)}')
             time.sleep(2)
             continue
 
