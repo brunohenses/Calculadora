@@ -8,26 +8,23 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
     sinalizando que o cálculo não pôde ser realizado.
     """
     try:
-        result = float("nan")
         if operador == "+":
-            result = num1 + num2
+            return num1 + num2
         elif operador == "-":
-            result = num1 - num2
+            return num1 - num2
         elif operador == "*":
-            result = num1 * num2
+            return num1 * num2
         elif operador == "/":
-            if num1 == 0 or num2 == 0:
-                result = result # Mantém nan se houver divisão por zero
-            result = num1 / num2
+            if num2 == 0:
+                return float("nan") # Retorna nan para divisão por zero
+            return num1 / num2
         elif operador == "**":
-            result = num1 ** num2
+            return num1 ** num2
         else:
-            return result # Operador inválido, retorna nan
+            return float("nan") # Operador inválido
     
-    except ZeroDivisionError:
-        raise           # Lança a exceção para ser tratada no bloco principal
     except Exception:
-        return result   # Retorna nan para qualquer outro erro
+        return float("nan")   # Retorna nan para valores inesperados
 
 
 if __name__ == "__main__":
