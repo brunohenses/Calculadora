@@ -32,6 +32,15 @@ if __name__ == "__main__":
             print('Calculadora')
             print('----------------------------------\n')
 
+            # Entrada de dados do usuário
+            num1 = float(input('Digite o primeiro número: '))
+            num2 = float(input('Digite o segundo número: '))
+            operador = input('Digite o operador (+, -, *, /, **): ').strip()
+
+            # Execução do cálculo
+            result = calculadora(num1, num2, operador)
+
+
 
         except ValueError:
             print('Dados inválidos! -> Tente novamente!')
