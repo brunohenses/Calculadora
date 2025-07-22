@@ -15,6 +15,8 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
     elif operador == '*':
         result = num1 * num2
     elif operador == '/':
+        if num1 == 0 or num2 == 0:
+            result = result # Mantém nan se houver divisão por zero
         result = num1 / num2
     return result
 
