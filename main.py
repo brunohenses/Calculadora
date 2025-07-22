@@ -7,21 +7,27 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
     Se o operador fornecido não corresponder a nenhuma das opções válidas (+, -, etc.), a função retornará nan, 
     sinalizando que o cálculo não pôde ser realizado.
     """
-    result = float("nan")
-    if operador == "+":
-        result = num1 + num2
-    elif operador == "-":
-        result = num1 - num2
-    elif operador == "*":
-        result = num1 * num2
-    elif operador == "/":
-        if num1 == 0 or num2 == 0:
-            result = result # Mantém nan se houver divisão por zero
-        result = num1 / num2
-    elif operador == "**":
-        result = num1 ** num2
-    else:
-        return result
+    try:
+        result = float("nan")
+        if operador == "+":
+            result = num1 + num2
+        elif operador == "-":
+            result = num1 - num2
+        elif operador == "*":
+            result = num1 * num2
+        elif operador == "/":
+            if num1 == 0 or num2 == 0:
+                result = result # Mantém nan se houver divisão por zero
+            result = num1 / num2
+        elif operador == "**":
+            result = num1 ** num2
+        else:
+            return result # Operador inválido, retorna nan
+    
+    except ZeroDivisionError:
+        raise           # Lança a exceção para ser tratada no bloco principal
+    except Exception:
+        return result   # Retorna nan para qualquer outro erro
 
 
 if __name__ == "__main__":
@@ -50,14 +56,16 @@ if __name__ == "__main__":
                 break
 
         except ValueError:
-            print('Dados inválidos! -> Por favor, digite apenas números!')
+            print('Erro: Valor inválido! Por favor, digite apenas números!')
             time.sleep(2)
+            continue
 
         except Exception as e:
             print(f'Erro inesperado: {str(e)}')
             time.sleep(2)
-
+            continue
 
         except ZeroDivisionError:
             print('Impossível dividir por zero! -> Tente novamente!')
             time.sleep(2)
+            continue
