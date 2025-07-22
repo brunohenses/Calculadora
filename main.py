@@ -43,6 +43,12 @@ if __name__ == "__main__":
             # Exibição do resultado
             print(f'\nResultado: {num1} {operador} {num2} = {result:.2f}\n')
 
+            # Verificar se o usuário deseja continuar
+            continuar = input('\nDeseja fazer outra operação? (s/n): ').strip().lower()
+            if continuar != 's':
+                print('\nVolte sempre!\n')
+                break
+
         except ValueError:
             print('Dados inválidos! -> Tente novamente!')
             time.sleep(2)
