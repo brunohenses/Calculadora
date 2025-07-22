@@ -50,11 +50,14 @@ if __name__ == "__main__":
                 break
 
         except ValueError:
-            print('Dados inválidos! -> Tente novamente!')
+            print('Dados inválidos! -> Por favor, digite apenas números!')
             time.sleep(2)
+
+        except Exception as e:
+            print(f'Erro inesperado: {str(e)}')
+            time.sleep(2)
+
 
         except ZeroDivisionError:
             print('Impossível dividir por zero! -> Tente novamente!')
             time.sleep(2)
-
-    print('\nVolte sempre!\n')
