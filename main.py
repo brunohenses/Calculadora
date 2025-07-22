@@ -40,7 +40,8 @@ if __name__ == "__main__":
             # Execução do cálculo
             result = calculadora(num1, num2, operador)
 
-
+            # Exibição do resultado
+            print(f'\nResultado: {num1} {operador} {num2} = {result:.2f}\n')
 
         except ValueError:
             print('Dados inválidos! -> Tente novamente!')
