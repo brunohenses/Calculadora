@@ -8,17 +8,20 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
     sinalizando que o cálculo não pôde ser realizado.
     """
     result = float("nan")
-    if operador == '+':
+    if operador == "+":
         result = num1 + num2
-    elif operador == '-':
+    elif operador == "-":
         result = num1 - num2
-    elif operador == '*':
+    elif operador == "*":
         result = num1 * num2
-    elif operador == '/':
+    elif operador == "/":
         if num1 == 0 or num2 == 0:
             result = result # Mantém nan se houver divisão por zero
         result = num1 / num2
-    return result
+    elif operador == "**":
+        result = num1 ** num2
+    else:
+        return result
 
 
 if __name__ == "__main__":
